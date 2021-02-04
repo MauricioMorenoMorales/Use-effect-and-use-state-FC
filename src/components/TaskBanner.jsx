@@ -1,8 +1,11 @@
 import React from 'react'
 
-const TaskBanner = () => {
+const TaskBanner = props => {
 	return (
-		<h4 className="bg-primary text-white text-center p-4">Fazt's task app'</h4>
+		<h4 className="bg-primary text-white text-center p-4">
+			{props.userName}'s task app ({props.taskItems.filter(t => !t.done).length}{' '}
+			tasks to do)
+		</h4>
 	)
 }
 

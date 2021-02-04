@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import TaskRow from './components/TaskRow'
 
+import TaskBanner from './components/TaskBanner'
+import TaskCreator from './components/TaskCreator'
+
 function App() {
 	const [userName, setUserName] = useState('fazt')
 	const [taskItems, setTaskItems] = useState([
@@ -9,6 +12,10 @@ function App() {
 		{ name: 'Task Three', done: true },
 		{ name: 'Task Four', done: false },
 	])
+
+	const createNewTask = taskName =>
+		!taskItems.find(t => t.name === taskName) &&
+		setTaskItems([...taskItems, { name: taskName, done: false }])
 
 	const toggleTask = task =>
 		setTaskItems(
@@ -22,6 +29,8 @@ function App() {
 
 	return (
 		<>
+			<TaskBanner userName={userName} taskItems={taskItems} />
+			<TaskCreator callback={createNewTask} />
 			<table className="table table-striped table-border">
 				<thead>
 					<tr>
