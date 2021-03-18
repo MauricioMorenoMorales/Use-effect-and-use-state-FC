@@ -5,7 +5,7 @@ import TaskBanner from './components/TaskBanner'
 import TaskCreator from './components/TaskCreator'
 import VisibilityControl from './components/VisibilityControl'
 
-function App() {
+const App = () => {
 	const [userName, setUserName] = useState('fazt')
 	const [taskItems, setTaskItems] = useState([
 		{ name: 'Task One', done: false },
